@@ -1,0 +1,16 @@
+# deploy_wordpress_staging:
+#   script:
+#   - git submodule update --init
+#   - rm -f wp-config.php || true
+#   - rm -f wp-config.test.php || true
+#   - rm -f wp-config.live.php || true
+#   - mv wp-config.staging.php wp-config.php
+#   - rsync -rz --rsh=ssh --exclude '.git' --exclude '.gitignore' --exclude '.gitlab-ci.yml' --exclude 'README.md' --exclude 'Vagrantfile' . 
+#   - ssh  'rm -rf '
+#   - git reset --hard
+#   - git clean -fd
+#   stage: deploy_staging
+#   tags:
+#     - mac
+#   only:
+#     - master
