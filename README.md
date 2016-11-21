@@ -12,5 +12,8 @@ vagrant up --provision
 
 Wordpress should now be accessible from port 8080 on the local machine.
 
-The database is self contained and Wordpress code is shared from the www/wordpress directory 
-in this repository.
+* * *
+
+Vagrant PHP ADMIN
+
+To access/sync phpmyadmin on host machine run this command on your terminal: ln -fs /usr/share/phpmyadmin /var/www
