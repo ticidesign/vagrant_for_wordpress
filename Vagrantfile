@@ -28,6 +28,12 @@ Vagrant.configure(2) do |config|
     sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password wordpress"
     sudo apt-get install -y mysql-server php5-mysql
 
+    # create database user for wordpress (add info from wp_config.php)
+    mysql -u root -pwordpress -e "CREATE USER 'mcsaatchicomau'@'localhost' IDENTIFIED BY 'M63w-z2g'; GRANT ALL PRIVILEGES ON * . * TO 'mcsaatchicomau'@'localhost'; FLUSH PRIVILEGES;"
+    #mysql -u mcsaatchicomau -pM63w-z2g mcsaatchi_com_au -h localhost < /var/www/html/database/mcsaatchi_2016-12-07.sql
+    #mysql -u mcsaatchicomau -pM63w-z2g mcsaatchi_com_au -h localhost < /var/www/html/database/live-settings.sql
+
+
     # install phpmyadmin and give password(s) to installer
     sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/dbconfig-install boolean true"
     sudo debconf-set-selections <<< "phpmyadmin phpmyadmin/app-password-confirm password wordpress"
